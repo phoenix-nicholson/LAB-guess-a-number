@@ -39,7 +39,7 @@ guessButton.addEventListener('click', ()=> {
 
     resultP.textContent = result;
 
-    console.log(randNum);
+    // console.log(randNum);
   
 
 });
@@ -48,7 +48,7 @@ reset.addEventListener('click', ()=> {
     numGuesses = 4;
     guessButton.disabled = false;
     randNum = (Math.floor(Math.random() * 20)) + 1;
-    console.log(randNum);
+    // console.log(randNum);
     
 });
 
