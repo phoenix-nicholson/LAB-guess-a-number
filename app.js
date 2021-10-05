@@ -1,43 +1,55 @@
 // import functions and grab DOM elements
-const randNum = (Math.floor(Math.random()*20)) + 1;
+let randNum = (Math.floor(Math.random() * 20)) + 1;
 const guessButton = document.getElementById('guess-btn');
-const userGuess = document.getElementById('user-guess').value;
+const userGuess = document.getElementById('user-guess');
 const reset = document.getElementById('reset');
 const resultP = document.getElementById('result');
 
 // initialize global state
 let numGuesses = 4;
 let result;
+
+
 // set event listeners 
 guessButton.addEventListener('click', ()=> {
-  numGuesses--;
-  // console.log(numGuesses);
+  
+    numGuesses--;
+    const userGuessValue = Number(userGuess.value);
   
   
-  if (userGuess === randNum) {
-    result = "You're correct!"
-  } 
+    if (userGuessValue === randNum) {
+        result = "You're correct!";
+        document.getElementById('guess-btn').disabled = true;
+    } 
 
-  else if (userGuess < randNum) {
-    result = 'Guess Higher!'
-  }
+    else if (userGuessValue < randNum) {
+        result = 'Guess Higher!';
+    }
 
-  else if (userGuess > randNum) {
-    result = 'Guess Lower!'
-  }
+    else if (userGuessValue > randNum) {
+        result = 'Guess Lower!';
+    }
 
-  if (userGuess >3){
-    document.getElementById('button').disabled = true;
-  }
+    if (userGuessValue === 4){
+        document.getElementById('guess-btn').disabled = true;
+    }
 
   
 
 
-  resultP.textContent = result;
+    resultP.textContent = result;
 
-  console.log(userGuess);
+    console.log(randNum);
   
 
+});
+
+reset.addEventListener('click', ()=> {
+    numGuesses = 4;
+    guessButton.disabled = false;
+    randNum = (Math.floor(Math.random() * 20)) + 1;
+    console.log(randNum);
+    
 });
 
   // get user input
