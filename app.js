@@ -4,6 +4,7 @@ const guessButton = document.getElementById('guess-btn');
 const userGuess = document.getElementById('user-guess');
 const reset = document.getElementById('reset');
 const resultP = document.getElementById('result');
+const numGuessSpan = document.getElementById('num-guess');
 
 // initialize global state
 let numGuesses = 4;
@@ -30,12 +31,12 @@ guessButton.addEventListener('click', ()=> {
         result = 'Guess Lower!';
     }
 
-    if (userGuessValue === 4){
+    if (numGuesses === 0){
         document.getElementById('guess-btn').disabled = true;
     }
 
-  
-
+    numGuessSpan.textContent = `${numGuesses}`;
+    // console.log(guessButton, 'clicking');
 
     resultP.textContent = result;
 
